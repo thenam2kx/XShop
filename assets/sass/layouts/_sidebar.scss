@@ -26,8 +26,18 @@
     padding: 10px 20px;
     border-top: 1px solid $text-primary;
     background-color: #ecf0f1;
-    
   }
+
+  &--user {
+    @include flexboxLayout(column);
+    gap: 10px;
+    padding: 20px;
+
+    &__avatar {
+      @include setHeightWidth(200px, 200px);
+    }
+  }
+
 }
 
 .category {

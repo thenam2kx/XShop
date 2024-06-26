@@ -29,114 +29,74 @@
         </nav>
       </section>
       <section class="header--user">
-          <a href="" class="user">
-            <i class='bx bx-user-circle user__icon'></i>
-            <span class="user__text">Thenam2kx</span>
-          </a>
+        <a href="" class="user">
+          <i class='bx bx-user-circle user__icon'></i>
+          <span class="user__text">Thenam2kx</span>
+        </a>
       </section>
     </header>
 
     <main class="main">
-      <aside class="aside">
-        <article class="category">
-          <section class="aside--header">
-            Danh Mục
-          </section>
-          <nav class="category--list">
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-            <a href="" class="category--list__item">Laptop</a>
-          </nav>
-          <section class="aside--footer">
-            <form action="" method="get" class="category--form">
-              <input type="text" name="search-category" placeholder="Search key">
-            </form>
-          </section>
-        </article>
-
-        <article class="favorite">
-          <section class="aside--header">
-            Top 10 sản phẩm yêu thích
-          </section>
-          <nav class="favorite--list">
-            <a href="" class="favorite--list__item">
-              <img src="https://picsum.photos/32/32" alt="">
-              <span>Laptop cau hinh khoe</span>
-            </a>
-            <a href="" class="favorite--list__item">
-              <img src="https://picsum.photos/32/32" alt="">
-              <span>Laptop cau hinh khoe</span>
-            </a>
-            <a href="" class="favorite--list__item">
-              <img src="https://picsum.photos/32/32" alt="">
-              <span>Laptop cau hinh khoe</span>
-            </a>
-            <a href="" class="favorite--list__item">
-              <img src="https://picsum.photos/32/32" alt="">
-              <span>Laptop cau hinh khoe</span>
-            </a>
-            <a href="" class="favorite--list__item">
-              <img src="https://picsum.photos/32/32" alt="">
-              <span>Laptop cau hinh khoe</span>
-            </a>
-            <a href="" class="favorite--list__item">
-              <img src="https://picsum.photos/32/32" alt="">
-              <span>Laptop cau hinh khoe</span>
-            </a>
-          </nav>
-        </article>
-
-        <article class="account">
-          <section class="aside--header">
-            Tài khoản
-          </section>
-          <form action="" method="post" class="form">
-            <div class="form--group">
-              <label for="">Tên đăng nhập</label>
-              <input type="text">
-            </div>
-            <div class="form--group">
-              <label for="">Mật khẩu</label>
-              <input type="password">
-            </div>
-            <div class="form--group">
-              <input type="checkbox">
-              <label for="">Ghi nhớ tài khoản</label>
-            </div>
-            <div class="form--group">
-              <input type="submit" value="Đăng nhập">
-            </div>
-            <div class="form--option">
-              <a href="" class="form--option__link">Quên mật khẩu</a>
-              <a href="" class="form--option__link">Đăng kí thành viên</a>
-            </div>
-          </form>
-        </article>
-
-      </aside>
-
+      <?php require_once './pages/Aside.php' ?>
       <article class="main--content">
-        <section class="banner">
-          <div class="banner--list">
-            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
-            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
-            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
-            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
+        <section class="product-detail">
+          <div class="product-image">
+            <img src="https://picsum.photos/200/300" alt="Product Image">
           </div>
-          <div class="banner--btnLeft">
-            <i class='bx bx-chevron-left'></i>
-          </div>
-          <div class="banner--btnRight">
-            <i class='bx bx-chevron-right'></i>
+          <div class="product-info">
+            <div class="basic-info">
+              <h1 class="product-name">Product Name</h1>
+              <p class="product-category">Category: Electronics</p>
+              <p class="product-id">Product ID: 12345</p>
+            </div>
+            <div class="price-info">
+              <span class="price">$99.99</span>
+              <span class="discount">$79.99</span>
+            </div>
+            <div class="product-buttons">
+              <button class="btn add-to-cart">Add to Cart</button>
+              <button class="btn buy-now">Buy Now</button>
+            </div>
+            <div class="product-description">
+              <h2>Description</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Saepe corporis et minima totam laudantium sapiente rerum
+                molestiae eligendi porro. Obcaecati voluptas reiciendis
+                distinctio impedit adipisci, expedita est vero dolores neque!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Saepe corporis et minima totam laudantium sapiente rerum
+                molestiae eligendi porro. Obcaecati voluptas reiciendis
+                distinctio impedit adipisci, expedita est vero dolores neque!
+              </p>
+            </div>
+
+
           </div>
         </section>
-        <section class="products"></section>
+
+        <section class="product-comment">
+          <div class="product-comment--header">Bình luận</div>
+          <div class="product-comment--body">
+            <div class="comment">
+              <p class="comment-author">John Doe</p>
+              <p class="comment-time">June 25, 2024</p>
+              <p class="comment-text">This is a great product! Highly recommend.</p>
+            </div>
+            <div class="comment">
+              <p class="comment-author">Jane Smith</p>
+              <p class="comment-time">June 24, 2024</p>
+              <p class="comment-text">Good value for the price.</p>
+            </div>
+          </div>
+          <div class="product-comment--footer">
+            <form action="" method="post" class="product-comment--footer__form">
+              <input type="text">
+              <button>Submit</button>
+            </form>
+          </div>
+        </section>
+
       </article>
     </main>
 

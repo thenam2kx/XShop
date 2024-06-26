@@ -1,0 +1,38 @@
+.banner-btn-basic {
+  @include setHeightWidth(32px, 32px);
+  @include flexboxLayout();
+  transform: translateY(-50%);
+  font-size: 28px;
+  border-radius: 50%;
+  opacity: .7;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.banner {
+  @include setHeightWidth(auto, 100%);
+  overflow: hidden;
+  position: relative;
+
+  &--list {
+    @include flexboxLayout(row, center, normal);
+    width: auto;
+    transition: transform 0.5s ease-in-out;
+
+    &__item {
+      display: inline-block;
+      min-width: 100%;
+      border-radius: 4px;
+    }
+  }
+
+  &--btnLeft {
+    @include setPositon(absolute, 50%, normal, 10px, normal);
+    @extend .banner-btn-basic;
+    
+  }
+  &--btnRight {
+    @include setPositon(absolute, 50%, normal, normal, 10px);
+    @extend .banner-btn-basic;
+  }
+}

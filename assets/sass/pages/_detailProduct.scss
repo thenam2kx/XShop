@@ -1,0 +1,166 @@
+.shadow-basic {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail {
+  @extend .shadow-basic;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+}
+
+.product-image img {
+  width: 320px;
+  height: auto;
+  display: block;
+}
+
+.product-info {
+  padding: 20px;
+  flex: 1;
+}
+
+.basic-info {
+  margin-bottom: 15px;
+}
+
+.product-name {
+  font-size: 28px;
+  margin: 0 0 5px;
+}
+
+.product-category,
+.product-id {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.price {
+  font-size: 20px;
+  color: #333;
+  margin-right: 10px;
+  text-decoration: line-through;
+}
+
+.discount {
+  font-size: 24px;
+  color: #e74c3c;
+}
+
+.product-buttons {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.buy-now {
+  background-color: #e74c3c;
+}
+
+.buy-now:hover {
+  background-color: #c0392b;
+}
+
+.product-description,
+.other-info {
+  margin: 20px 0;
+}
+
+.product-description h2,
+.other-info h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product-description p,
+.other-info p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.product-comment {
+  @extend .shadow-basic;
+  margin-top: 20px;
+
+  &--header {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: #ecf0f1;
+  }
+
+  &--body {
+    .comment {
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+    }
+
+    .comment:last-child {
+      border-bottom: none;
+    }
+
+    .comment-author {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .comment-time {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .comment-text {
+      font-size: 14px;
+      margin: 5px 0 0;
+    }
+  }
+
+  &--footer {
+    padding: 10px;
+    background-color: #ecf0f1;
+
+    &__form {
+      @include flexboxLayout(row, center, normal);
+      gap: 20px;
+
+      & > input {
+        @include setFullWidthUseFlexbox();
+        padding: 6px;
+        border-radius: 6px;
+        border: 1px solid $text-primary;
+      }
+
+      & > button {
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid $text-primary;
+      }
+    }
+  }
+}
