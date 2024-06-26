@@ -120,12 +120,31 @@
         </article>
 
       </aside>
+
+      <article class="main--content">
+        <section class="banner">
+          <div class="banner--list">
+            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
+            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
+            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
+            <img class="banner--list__item" src="../assets/images/banner.jpg" alt="">
+          </div>
+          <div class="banner--btnLeft">
+            <i class='bx bx-chevron-left'></i>
+          </div>
+          <div class="banner--btnRight">
+            <i class='bx bx-chevron-right'></i>
+          </div>
+        </section>
+        <section class="products"></section>
+      </article>
     </main>
 
     <footer></footer>
   </div>
 
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+  <script type="module" src="../assets/js/main.js"></script>
 </body>
 
 </html>

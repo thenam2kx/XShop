@@ -11,6 +11,7 @@
   @include setHeightWidth(auto, 280px);
   @include flexboxLayout(column, normal, normal);
   gap: 20px;
+  min-width: 280px;
 
   &--header {
     font-size: 16px;

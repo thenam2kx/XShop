@@ -449,6 +449,7 @@ textarea {
   justify-content: normal;
   align-items: normal;
   gap: 20px;
+  min-width: 280px;
 }
 .aside--header {
   font-size: 16px;
@@ -543,9 +544,67 @@ textarea {
   padding: 6px;
 }
 
+.banner-btn-basic, .banner--btnRight, .banner--btnLeft {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  font-size: 28px;
+  border-radius: 50%;
+  opacity: 0.7;
+  background-color: #fff;
+  cursor: pointer;
+}
+
 .main {
   height: auto;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: normal;
+  align-items: normal;
+  gap: 10px;
+}
+.main--content {
+  height: auto;
+  width: calc(100% - 290px);
+}
+
+.banner {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.banner--list {
+  display: flex;
+  flex-direction: row;
+  justify-content: normal;
+  align-items: center;
+  width: auto;
+  transition: transform 0.5s ease-in-out;
+}
+.banner--list__item {
+  display: inline-block;
+  min-width: 100%;
+  border-radius: 4px;
+}
+.banner--btnLeft {
+  position: absolute;
+  top: 50%;
+  bottom: normal;
+  left: 10px;
+  right: normal;
+}
+.banner--btnRight {
+  position: absolute;
+  top: 50%;
+  bottom: normal;
+  left: normal;
+  right: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
