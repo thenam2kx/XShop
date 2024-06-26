@@ -1,1 +1,7 @@
-// _footer.scss
+.footer {
+  @include flexboxLayout();
+  margin-top: 20px;
+  padding: 10px;
+  color: #838383;
+  background-color: #dfdfdf;
+}
