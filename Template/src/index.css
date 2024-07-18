@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .toggleBtnMenuDropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: 0.5s;
+    transform: translateY(0) !important;
+  }
+
+  /* use for product detail page */
+  .nav-for-slider .swiper-slide {
+    height: auto;
+    width: auto;
+    cursor: pointer;
+  }
+  .swiper-wrapper {
+    height: auto;
+  }
+  .nav-for-slider .swiper-slide img {
+    border: 2px solid transparent;
+    border-radius: 10px;
+  }
+  .nav-for-slider .swiper-slide-thumb-active img {
+    border-color: rgb(79 70 229);
+  }
+}

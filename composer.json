@@ -1,0 +1,15 @@
+{
+    "name": "admin/x-shop",
+    "autoload": {
+        "psr-4": {
+            "Admin\\XShop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Thenam2kx",
+            "email": "thenam2kx@gmail.com"
+        }
+    ],
+    "require": {}
+}
