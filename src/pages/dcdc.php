@@ -1,9 +1,5 @@
 <?php
-  include './src/common/pdo.php';
-  include './src/dao/product.php';
-  include './src/components/header.php';
-
-  $products = getProductsHome();
+  include './src/components/Header.php' ;
 
   if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
@@ -25,11 +21,11 @@
         break;
 
       default:
-        include './src/pages/home.php';
+        include './src/pages/list-products.php';
         break;
     }
   } else {
-    include './src/pages/home.php';
+    include './src/pages/list-products.php';
   }
 
-  include './src/components/footer.php';
+  include './src/components/Footer.php';

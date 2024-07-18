@@ -1,5 +1,5 @@
 <?php
-require_once '../common/pdo.php';
+// require_once '../common/pdo.php';
 
 function insertProduct ($categoryID, $name, $unitPrice, $discount, $thumbnail, $createAt, $views, $special, $desc = null, $productID = null) {
   $sql = "INSERT INTO `products`(`productID`, `categoryID`, `name`, `unitPrice`, `discount`, `thumbnail`, `createAt`, `views`, `special`, `desc`)
@@ -17,6 +17,11 @@ function getAllProducts ($keyCate = 0, $keySearch = '') {
     $sql.=" and categoryID = '".$keyCate ."'";
   }
   $sql.= " ORDER BY productID DESC";
+  return pdo_query($sql);
+}
+
+function getProductsHome () {
+  $sql = "SELECT * FROM `products` WHERE 1 ORDER BY productID DESC LIMIT 0,9";
   return pdo_query($sql);
 }
 

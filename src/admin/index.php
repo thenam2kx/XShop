@@ -1,5 +1,6 @@
 <?php
   include '../../global.php';
+  include '../common/pdo.php';
   include '../dao/category.php';
   include '../dao/product.php';
   include '../dao/user.php';

@@ -1,5 +1,5 @@
 <?php
-require_once '../common/pdo.php';
+// require_once '../common/pdo.php';
 
 function insertCate ($name, $desc = null, $id = null) {
   $sql = "INSERT INTO `category`(`categoryID`, `name`, `desc`) VALUES (?,?,?)";

@@ -1,7 +1,6 @@
-      </article>
     </div>
   </main>
 
-  <!-- <script type="module" src="/js/main.js"></script> -->
+  <!-- <script type="module" src="./src/main.js"></script> -->
 </body>
 </html>
