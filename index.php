@@ -6,6 +6,7 @@
 
   $products = getProductsHome();
   $categories = getAllCate();
+  $productsTop10 = getTop10Products();
 
   if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
@@ -32,10 +33,43 @@
 
       case 'product-detail':
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-          // $categories = getAllCate();
+          $categories = getAllCate();
           $productItem = getOneProduct($_GET['id']);
+          $cartegoryOfProduct = $productItem['categoryID'];
+          $productsTheSame = getProductTheSame($_GET['id'], $cartegoryOfProduct);
         }
         include './src/pages/product-detail.php';
+        break;
+
+      case 'products-show':
+        if (isset($_POST['keyw']) && $_POST['keyw'] != '') {
+          $keyw = $_POST['keyw'];
+        } else {
+          $keyw = '';
+        }
+        if (isset($_GET['idCate']) && $_GET['idCate'] > 0) {
+          $idCate = $_GET['idCate'];
+        } else {
+          $idCate = 0;
+        }
+        if (getNameCate($idCate) != '') {
+          extract(getNameCate($idCate));
+          $cateName = $name;
+        } else {
+          $cateName = '';
+        }
+        $listProducts = getAllProducts($idCate, $keyw);
+        include './src/pages/products-show.php';
+        break;
+      case 'login':
+        include './src/pages/login.php';
+        break;
+      case 'register':
+        include './src/pages/register.php';
+        break;
+
+      case 'demo':
+        include './src/pages/demo.php';
         break;
 
       default:

@@ -30,6 +30,21 @@ function getOneProduct ($id) {
   return pdo_query_one($sql, $id);
 }
 
+function getNameCate ($idCate) {
+  if ($idCate > 0) {
+    $sql = "SELECT * FROM `category` WHERE categoryID =?";
+    return pdo_query_one($sql, $idCate);
+  } else {
+    return "";
+  }
+}
+
+function getProductTheSame ($id, $cartegoryOfProduct) {
+  // $sql = "SELECT * FROM `products` WHERE productID <>?";
+  $sql = "SELECT * FROM `products` WHERE categoryID =? AND productID <>? LIMIT 0,5";
+  return pdo_query($sql, $cartegoryOfProduct, $id);
+}
+
 function updateProduct ($categoryID, $name, $unitPrice, $discount, $thumbnail, $createAt, $views, $special, $desc, $productID) {
   if ($thumbnail !== '') {
     $sql = "UPDATE `products` SET
@@ -73,7 +88,7 @@ function updateViewProduct ($productID) {
 }
 
 function getTop10Products () {
-  $sql = "SELECT * FROM `products` LIMIT 10";
+  $sql = "SELECT * FROM `products` WHERE 1 ORDER BY `views` LIMIT 0,9";
   return pdo_query($sql);
 }
 

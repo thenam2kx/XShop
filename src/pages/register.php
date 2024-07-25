@@ -10,29 +10,7 @@
   <link rel="stylesheet" href="./src/style.css">
 </head>
 <body class="h-screen">
-  <!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-white">
-  <body class="h-full">
-  ```
--->
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
     <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Register new memmber</h2>
@@ -75,7 +53,7 @@
 
     <p class="mt-10 text-center text-sm text-gray-500">
       You have an account?
-      <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign in</a>
+      <a href="index.php?act=login" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign in</a>
     </p>
   </div>
 </div>

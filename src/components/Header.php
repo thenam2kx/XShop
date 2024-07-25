@@ -10,6 +10,23 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="../../public/css/styles.css">
+  <style>
+    .nav-for-slider .swiper-slide {
+      height: auto;
+      width: auto;
+      cursor: pointer;
+    }
+    .swiper-wrapper{
+      height: auto;
+    }
+    .nav-for-slider .swiper-slide img{
+      border:2px solid transparent;
+      border-radius: 10px;
+    }
+    .nav-for-slider .swiper-slide-thumb-active img{
+      border-color: rgb(79 70 229 );
+    }
+  </style>
 </head>
 <body class="bg-[#efefef]">
   <header class="bg-white">
@@ -43,7 +60,7 @@
 
       <!-- login button -->
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        <a href="/index.php?act=login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
         <!-- cart header -->
         <a href="#" class="hidden group -m-2">
           <div class=" flex items-center p-2">
