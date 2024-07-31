@@ -1,8 +1,11 @@
 <?php
+  session_start();
   include './src/common/pdo.php';
   include './src/dao/product.php';
   include './src/dao/category.php';
+  include './src/dao/user.php';
   include './src/components/header.php';
+  include './src/common/upload.php';
 
   $products = getProductsHome();
   $categories = getAllCate();
@@ -25,10 +28,6 @@
 
       case 'question':
         include './src/pages/question.php';
-        break;
-
-      case 'account':
-        include './src/pages/account.php';
         break;
 
       case 'product-detail':
@@ -62,14 +61,43 @@
         include './src/pages/products-show.php';
         break;
       case 'login':
+        if (isset($_POST['signin']) && $_POST['signin']) {
+          $email = $_POST['email'];
+          $password = $_POST['password'];
+          $checkUser = checkUser ($email, $password);
+          if (is_array($checkUser)) {
+            $_SESSION['user'] = $checkUser;
+            $mess = true;
+          } else {
+            $mess = false;
+          }
+        }
         include './src/pages/login.php';
         break;
       case 'register':
+        if (isset($_POST['register']) && $_POST['register']) {
+          $username = $_POST['username'];
+          $email = $_POST['email'];
+          $password = $_POST['password'];
+          insertUser($username, $email, $password);
+          $mess = 'Đăng ký thành công, vui lòng đăng nhập để thực hiện các chức năng';
+        }
         include './src/pages/register.php';
         break;
-
-      case 'demo':
-        include './src/pages/demo.php';
+      case 'account':
+        if ($_SESSION['user']) {
+          $inforUser = getOneUser($_SESSION['user']['userID']);
+        }
+        include './src/pages/account.php';
+        break;
+      case 'update-account':
+        if (isset($_POST['updateAccount']) && $_POST['updateAccount']) {
+          $id = $_POST['id'];
+          $fullname = $_POST['fullname'];
+          $password = $_POST['password'];
+          $avatar = uploadImage("file-upload", 'public/images/users/');
+          updateUserClient($fullname, $email, $password, $avatar, $id);
+        }
         break;
 
       default:

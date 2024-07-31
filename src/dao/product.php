@@ -21,7 +21,7 @@ function getAllProducts ($keyCate = 0, $keySearch = '') {
 }
 
 function getProductsHome () {
-  $sql = "SELECT * FROM `products` WHERE 1 ORDER BY productID DESC LIMIT 0,9";
+  $sql = "SELECT * FROM `products` WHERE 1 ORDER BY productID DESC LIMIT 0,12";
   return pdo_query($sql);
 }
 
@@ -41,7 +41,7 @@ function getNameCate ($idCate) {
 
 function getProductTheSame ($id, $cartegoryOfProduct) {
   // $sql = "SELECT * FROM `products` WHERE productID <>?";
-  $sql = "SELECT * FROM `products` WHERE categoryID =? AND productID <>? LIMIT 0,5";
+  $sql = "SELECT * FROM `products` WHERE categoryID =? AND productID <>? LIMIT 0,6";
   return pdo_query($sql, $cartegoryOfProduct, $id);
 }
 
@@ -88,7 +88,7 @@ function updateViewProduct ($productID) {
 }
 
 function getTop10Products () {
-  $sql = "SELECT * FROM `products` WHERE 1 ORDER BY `views` LIMIT 0,9";
+  $sql = "SELECT * FROM `products` WHERE 1 ORDER BY `views` LIMIT 0,10";
   return pdo_query($sql);
 }
 

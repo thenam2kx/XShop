@@ -5,11 +5,17 @@
   <!-- content -->
   <article class="flex-1 rounded-lg">
 
-    <section class="w-full h-fit rounded-lg bg-white">
+    <section class="h-[400px] w-full rounded-lg bg-white">
+      <div class="h-full p-4 flex items-center justify-center">
+          <img src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:quality(100)/H1_1440x242_d1b7aea9f3.png" alt="">
+      </div>
+    </section>
+
+    <section class="w-full h-fit rounded-lg bg-white mt-4">
       <div class="p-4 flex flex-col gap-3">
         <!-- ===== Title ===== -->
         <section class="flex items-center justify-between">
-          <h3 class="text-base font-semibold">Nhập khẩu chính hãng</h3>
+          <h3 class="text-base font-semibold">Hàng mới về - Nhập khẩu chính hãng</h3>
           <a href="" class="text-sm font-medium text-[#0a68ff]">Xem tất cả</a>
         </section>
 
@@ -72,7 +78,7 @@
 
         <!--  ===== Slider Products =====  -->
         <section class="relative overflow-hidden">
-          <div class="grid grid-cols-6 transition-transform duration-500 ease-in-out">
+          <div class="grid grid-cols-5 transition-transform duration-500 ease-in-out">
             <?php
               foreach ($productsTop10 as $productTop):
                 extract($productTop);

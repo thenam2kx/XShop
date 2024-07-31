@@ -60,7 +60,14 @@
 
       <!-- login button -->
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="/index.php?act=login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        <?php if (isset($_SESSION['user'])) { ?>
+          <div class="flex items-center gap-2">
+            <img class="w-8 h-8 rounded-full" src="https://picsum.photos/50/50" alt="Rounded avatar">
+            <a href="index.php?act=account" class="text-sm font-semibold leading-6 text-gray-900">Tài khoản<span aria-hidden="true"></span></a>
+          </div>
+        <?php } else {?>
+          <a href="/index.php?act=login" class="text-sm font-semibold leading-6 text-gray-900">Đăng nhập<span aria-hidden="true">&rarr;</span></a>
+        <?php } ?>
         <!-- cart header -->
         <a href="#" class="hidden group -m-2">
           <div class=" flex items-center p-2">
