@@ -4,6 +4,7 @@
   include './src/dao/product.php';
   include './src/dao/category.php';
   include './src/dao/user.php';
+  include './src/dao/comment.php';
   include './src/components/header.php';
   include './src/common/upload.php';
 
@@ -36,6 +37,34 @@
           $productItem = getOneProduct($_GET['id']);
           $cartegoryOfProduct = $productItem['categoryID'];
           $productsTheSame = getProductTheSame($_GET['id'], $cartegoryOfProduct);
+          $getAllUser = getAllUser();
+          $productID = $_GET['id'];
+          $commentByProduct = getCommentByProduct($_GET['id']);
+          if (isset($_POST['postComment']) && $_POST['postComment']) {
+            $commentProduct = $_POST['commentProduct'];
+            $userID = $_POST['userID'];
+            $commentAt = date("Y-m-d",time());
+            insertComment($userID, $productID, $commentProduct, $commentAt);
+          }
+        }
+        include './src/pages/product-detail.php';
+        break;
+
+      case 'post-comment':
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+          $categories = getAllCate();
+          $productItem = getOneProduct($_GET['id']);
+          $cartegoryOfProduct = $productItem['categoryID'];
+          $productsTheSame = getProductTheSame($_GET['id'], $cartegoryOfProduct);
+          $getAllUser = getAllUser();
+          $commentByProduct = getCommentByProduct($_GET['id']);
+        }
+        if (isset($_POST['postComment']) && $_POST['postComment']) {
+          $commentProduct = $_POST['commentProduct'];
+          $userID = $_POST['userID'];
+          $productID = $_GET['id'];
+          $commentAt = date("Y-m-d",time());
+          insertComment($userID, $productID, $commentProduct, $commentAt);
         }
         include './src/pages/product-detail.php';
         break;
@@ -60,6 +89,7 @@
         $listProducts = getAllProducts($idCate, $keyw);
         include './src/pages/products-show.php';
         break;
+
       case 'login':
         if (isset($_POST['signin']) && $_POST['signin']) {
           $email = $_POST['email'];
@@ -74,6 +104,12 @@
         }
         include './src/pages/login.php';
         break;
+
+      case 'logout':
+        session_unset();
+        include './src/pages/home.php';
+        break;
+
       case 'register':
         if (isset($_POST['register']) && $_POST['register']) {
           $username = $_POST['username'];
@@ -84,12 +120,14 @@
         }
         include './src/pages/register.php';
         break;
+
       case 'account':
         if ($_SESSION['user']) {
           $inforUser = getOneUser($_SESSION['user']['userID']);
         }
         include './src/pages/account.php';
         break;
+
       case 'update-account':
         if (isset($_POST['updateAccount']) && $_POST['updateAccount']) {
           $id = $_POST['id'];
@@ -98,6 +136,23 @@
           $avatar = uploadImage("file-upload", 'public/images/users/');
           updateUserClient($fullname, $email, $password, $avatar, $id);
         }
+        break;
+
+      case 'forgot-password':
+        if (isset($_POST['submit']) && $_POST['submit']) {
+          $email = $_POST['email'];
+          $checkEmail = checkEmail($email);
+          if (is_array($checkEmail)) {
+            $mess = 'Mật khẩu của bạn là: '.$checkEmail['password'];
+          } else {
+            $mess = 'Email không tồn tại';
+          }
+        }
+        include './src/pages/forgot-password.php';
+        break;
+
+      case 'comments':
+        include './src/pages/comments.php';
         break;
 
       default:

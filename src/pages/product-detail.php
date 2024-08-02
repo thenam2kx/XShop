@@ -171,17 +171,7 @@
     <?= $desc ?>
   </section>
 
-  <section class="py-5 mx-auto mt-4 px-4 sm:px-6 lg:px-8 rounded-lg bg-white">
-    <div class="flex flex-col gap-2">
-      <h4 class="text-lg font-medium">Bình luận</h4>
-      <form>
-        <div class="sm:flex gap-2 items-centeroverflow-hidden py-1 justify-between">
-          <input class="text-base text-gray-400 flex-grow outline-none rounded-lg px-2 " type="text" placeholder="Câu hỏi của bạn ?" />
-          <button class="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Bình luận</button>
-        </div>
-      </form>
-    </div>
-  </section>
+  <?php include 'comments.php' ?>
 
   <section class="w-full h-fit rounded-lg mt-4 bg-white">
     <div class="p-4 flex flex-col gap-3">

@@ -1,5 +1,4 @@
 <?php
-// require_once '../common/pdo.php';
 
 function insertUser ($fullname, $email, $password, $avatar = null, $status = 1, $role = 0, $userID = null) {
   $sql = "INSERT INTO `users`(`userID`, `fullname`, `email`, `password`, `avatar`, `status`, `role`)
@@ -21,6 +20,10 @@ function checkUser ($email, $password) {
   return pdo_query_one($sql, $email, $password);
 }
 
+function checkEmail ($email) {
+  $sql = "SELECT * FROM `users` WHERE email=?";
+  return pdo_query_one($sql, $email);
+}
 function updateUser ($fullname, $email, $password, $avatar, $status, $role, $userID) {
   if ($avatar !== '') {
     $sql = "UPDATE `users` SET
@@ -73,4 +76,14 @@ function updatePasswordUser ($password, $userID) {
 function deleteUser ($id) {
   $sql = "DELETE FROM `users` WHERE userID = ?";
   return pdo_execute($sql, $id);
+}
+
+function getChart () {
+  $sql = "SELECT category.name, COUNT(products.productID) AS productCount FROM `category` LEFT JOIN `products` on category.categoryID = products.categoryID GROUP BY category.name";
+  return pdo_query($sql);
+}
+
+function totalUser () {
+  $sql = "SELECT COUNT(*) AS countUser FROM `users` WHERE 1;";
+  return pdo_query_one($sql);
 }

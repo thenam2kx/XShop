@@ -29,3 +29,8 @@ function totalProductByCategory ($id) {
   $sql = "SELECT ?, COUNT(*) AS productCount FROM products GROUP BY ?";
   return pdo_query_one($sql, $id, $id);
 }
+
+function totalCategories () {
+  $sql = "SELECT COUNT(*) AS countCategories FROM `category` WHERE 1;";
+  return pdo_query_one($sql);
+}

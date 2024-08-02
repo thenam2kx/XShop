@@ -1,5 +1,4 @@
 <?php
-require_once '../common/pdo.php';
 
 function insertComment ($userID, $productID, $content, $commentAt, $commentID = null) {
   $sql = "INSERT INTO `comments`(`commentID`, `userID`, `productID`, `content`, `commentAt`)

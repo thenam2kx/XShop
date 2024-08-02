@@ -41,7 +41,7 @@
           >
           <div class="text-sm">
             <a
-              href="#"
+              href="index.php?act=forgot-password"
               class="font-semibold text-indigo-600 hover:text-indigo-500"
               >Quên mật khẩu?</a
             >

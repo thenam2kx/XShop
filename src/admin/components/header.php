@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>index</title>
+  <title>Trang quản trị</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="../../../public/css/styles.css ">
 </head>
 <body class="h-screen">
@@ -22,16 +23,18 @@
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="index.php" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                  aria-current="page">Dashboard</a>
+                <a href="index.php"
+                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Bảng điều khiển</a>
                 <a href="index.php?act=products-list"
-                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Products</a>
+                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Sản phẩm</a>
                 <a href="index.php?act=categories-list"
-                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Categories</a>
+                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Danh mục</a>
                 <a href="index.php?act=users-list"
-                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Users</a>
+                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Khách hàng</a>
                 <a href="index.php?act=comments-list"
-                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Comments</a>
+                  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Bình luận</a>
+                <a href="/"
+                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Website</a>
               </div>
             </div>
           </div>
@@ -61,17 +64,6 @@
                       alt="">
                   </button>
                 </div>
-
-                <!--
-                Dropdown menu, show/hide based on menu state.
-
-                Entering: "transition ease-out duration-100"
-                  From: "transform opacity-0 scale-95"
-                  To: "transform opacity-100 scale-100"
-                Leaving: "transition ease-in duration-75"
-                  From: "transform opacity-100 scale-100"
-                  To: "transform opacity-0 scale-95"
-              -->
                 <div
                   class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
@@ -160,7 +152,53 @@
     </nav>
     <header class="bg-white shadow">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+        <?php
+          if (isset($_GET['act'])) {
+            $act = $_GET['act'];
+
+            switch ($act) {
+              case 'products-list':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Danh sách sản phẩm</h1>';
+                break;
+              case 'products-add':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Thêm sản phẩm</h1>';
+                break;
+              case 'products-update':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Cập nhật sản phẩm</h1>';
+                break;
+
+              case 'categories-list':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Danh mục sản phẩm</h1>';
+                break;
+              case 'categories-add':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Thêm danh mục</h1>';
+                break;
+              case 'categories-update':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Cập nhật danh mục</h1>';
+                break;
+
+              case 'users-list':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Danh sách khách hàng</h1>';
+                break;
+              case 'users-add':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Thêm khách hàng</h1>';
+                break;
+              case 'user-update':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Cập nhật khách hàng</h1>';
+                break;
+
+              case 'comments-list':
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Danh sách bình luận</h1>';
+                break;
+
+              default:
+                echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900"></h1>';
+                break;
+            }
+          } else {
+            echo '<h1 class="text-3xl font-bold tracking-tight text-gray-900">Bảng điều khiển</h1>';
+          }
+        ?>
       </div>
     </header>
 

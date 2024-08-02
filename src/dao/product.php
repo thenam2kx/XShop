@@ -106,3 +106,8 @@ function getProductsByKeyword ($keyword) {
   $sql = "SELECT * FROM `products` WHERE `name` = $keyword";
   return pdo_query($sql);
 }
+
+function totalProducts () {
+  $sql = "SELECT COUNT(*) AS countProducts FROM `products` WHERE 1;";
+  return pdo_query_one($sql);
+}

@@ -56,6 +56,13 @@
         <a href="index.php?act=contact" class="text-sm font-semibold leading-6 text-gray-900">Liên hệ</a>
         <a href="index.php?act=feedback" class="text-sm font-semibold leading-6 text-gray-900">Góp ý</a>
         <a href="index.php?act=question" class="text-sm font-semibold leading-6 text-gray-900">Hỏi đáp</a>
+
+        <?php
+          if (isset($_SESSION['user']) && $_SESSION['user']['role'] === '1') {
+        ?>
+          <a href="src/admin/index.php" class="text-sm font-semibold leading-6 text-gray-900">Quản trị</a>
+        <?php } ?>
+
       </div>
 
       <!-- login button -->

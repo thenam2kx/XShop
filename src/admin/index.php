@@ -8,6 +8,7 @@
   include '../common/upload.php';
   include './components/header.php';
 
+
   if (isset($_GET['act'])) {
     $act = $_GET['act'];
 
@@ -174,10 +175,18 @@
 
         // default
       default:
+        $loadChart = getChart();
+        $totalUsers = totalUser();
+        $totalProducts = totalProducts();
+        $totalCategories = totalCategories();
         include 'dashboard/dashboard.php';
         break;
     }
   } else {
+    $loadChart = getChart();
+    $totalUsers = totalUser();
+    $totalProducts = totalProducts();
+    $totalCategories = totalCategories();
     include 'dashboard/dashboard.php';
   }
 
