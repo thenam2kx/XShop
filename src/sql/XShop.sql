@@ -21,12 +21,6 @@ CREATE TABLE `products` (
   `desc` text
 );
 
-CREATE TABLE `category` (
-  `categoryID` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `desc` varchar(255)
-);
-
 CREATE TABLE `comments` (
   `commentID` int PRIMARY KEY AUTO_INCREMENT,
   `userID` int NOT NULL,
@@ -34,6 +28,14 @@ CREATE TABLE `comments` (
   `content` varchar(500) NOT NULL,
   `commentAt` timestamp NOT NULL DEFAULT (now())
 );
+
+CREATE TABLE `category` (
+  `categoryID` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `desc` varchar(255)
+);
+
+
 
 ALTER TABLE `products` ADD FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`);
 

@@ -167,10 +167,27 @@
         // commmnets
       case 'comments-list':
         $comments = getAllComments();
+        $CommentByProduct = getNumberCommentByProduct();
         include 'comments/list.php';
         break;
+
       case 'comments-detail':
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+          $productID = $_GET['id'];
+          $users = getAllUser();
+          $CommentDetailByProduct = getCommentByProduct($productID);
+        }
         include 'comments/detail.php';
+        break;
+
+      case 'comments-delete':
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+          $commentID = $_GET['id'];
+          $comments = getAllComments();
+          $CommentByProduct = getNumberCommentByProduct();
+          deleteComment($commentID);
+        }
+        include 'comments/list.php';
         break;
 
         // default

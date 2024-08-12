@@ -51,10 +51,7 @@
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
               <?php
-                foreach($comments as $comment):
-                  extract($comment);
-                  $update = "index.php?act=comment-update&id=".$commentID ;
-                  $delete = "index.php?act=comment-delete&id=".$commentID ;
+                foreach($CommentByProduct as $comment):
               ?>
                 <tr>
                   <!-- checkbox -->
@@ -68,18 +65,18 @@
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <div class="flex-shrink-0 h-10 w-10">
-                        <img class="h-10 w-10 rounded-full" src="https://i.pravatar.cc/150?img=1" alt="">
+                        <img class="h-10 w-10 rounded-full" src="../../public/images/products/<?= $comment['thumbnail'] ?>" alt="">
                       </div>
                       <div class="ml-4">
                         <div class="text-sm font-medium text-gray-900">
-                          Jane Cooper Jane Cooper
+                          <?= $comment['name'] ?>
                         </div>
                       </div>
                     </div>
                   </td>
                   <!-- id -->
                   <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">Kh001</div>
+                    <div class="text-sm text-gray-900"><?= $comment['comment_count'] ?></div>
                   </td>
                   <!-- email -->
                   <td class="px-6 py-4 whitespace-nowrap">
@@ -90,8 +87,7 @@
                     Admin
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                    <a href="#" class="ml-2 text-red-600 hover:text-red-900">Delete</a>
+                    <a href="index.php?act=comments-detail&id=<?= $comment['productID'] ?>" class="text-indigo-600 hover:text-indigo-900">Xem chi tiết</a>
                   </td>
                 </tr>
               <?php endforeach; ?>

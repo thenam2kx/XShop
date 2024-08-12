@@ -16,9 +16,14 @@ function getOneComment ($id) {
   return pdo_query($sql, $id);
 }
 
-function getCommentByProduct ($productID ) {
+function getCommentByProduct ($productID) {
   $sql = "SELECT * FROM `comments` WHERE productID =?";
   return pdo_query($sql, $productID);
+}
+
+function getNumberCommentByProduct () {
+  $sql = "SELECT p.productID, p.name, p.thumbnail, COUNT(c.commentID) AS comment_count FROM products p LEFT JOIN comments c ON p.productID = c.productID GROUP BY p.productID, p.name";
+  return pdo_query($sql);
 }
 
 function updateComment ($userID, $productID, $content, $commentAt, $commentID) {

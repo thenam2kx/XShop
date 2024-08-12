@@ -47,31 +47,38 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-              <tr>
-                <!-- checkbox -->
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center h-5">
-                    <input id="hs-table-pagination-checkbox-1" type="checkbox" class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                    <label for="hs-table-pagination-checkbox-1" class="sr-only">Checkbox</label>
-                  </div>
-                </td>
-                <!--  name products -->
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">Kh001</div>
-                </td>
-                <!-- id -->
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">Kh001</div>
-                </td>
-                <!-- email -->
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">thenam2kx@gmail.com</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                  <a href="#" class="ml-2 text-red-600 hover:text-red-900">Delete</a>
-                </td>
-              </tr>
+              <?php foreach($CommentDetailByProduct as $cmmt): ?>
+                <tr>
+                  <!-- checkbox -->
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center h-5">
+                      <input id="hs-table-pagination-checkbox-1" type="checkbox" class="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                      <label for="hs-table-pagination-checkbox-1" class="sr-only">Checkbox</label>
+                    </div>
+                  </td>
+                  <!--  name products -->
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900"><?= $cmmt['content'] ?></div>
+                  </td>
+                  <!-- id -->
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900"><?= $cmmt['commentAt'] ?></div>
+                  </td>
+                  <!-- email -->
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">
+                      <?php foreach($users as $user) {
+                        if ($user['userID'] === $cmmt['userID']) {
+                          echo $user['email'];
+                        }
+                      } ?>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                    <a href="index.php?act=comments-delete&id=<?= $cmmt['commentID'] ?>" class="ml-2 text-red-600 hover:text-red-900">Xóa</a>
+                  </td>
+                </tr>
+              <?php endforeach ?>
 
             </tbody>
           </table>
