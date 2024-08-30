@@ -69,7 +69,7 @@
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <?php if (isset($_SESSION['user'])) { ?>
           <div class="flex items-center gap-2">
-            <img class="w-8 h-8 rounded-full" src="https://picsum.photos/50/50" alt="Rounded avatar">
+            <img class="w-8 h-8 rounded-full" src="../../public/images/users/<?= isset($_SESSION['user']) ? $_SESSION['user']['avatar'] : '' ?>" alt="Rounded avatar">
             <a href="index.php?act=account" class="text-sm font-semibold leading-6 text-gray-900">Tài khoản<span aria-hidden="true"></span></a>
           </div>
         <?php } else {?>

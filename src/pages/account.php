@@ -6,7 +6,7 @@
     <div class="bg-gray-100 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
       <div class="max-w-sm mx-auto md:w-full md:mx-0">
         <div class="inline-flex items-center space-x-4">
-          <img class="w-10 h-10 object-cover rounded-full" alt="User avatar" src="<?= $avatar ?>" />
+          <img class="w-10 h-10 object-cover rounded-full" alt="User avatar" src="../../public//images/users/<?= $avatar ?>" />
 
           <h1 class="text-gray-600"><?= $fullname ?></h1>
         </div>
